@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+:root {
+    --primary-color: #ff5e57;
+    --primary-soft: rgba(255, 94, 87, 0.1);
+    --success-soft: rgba(40, 167, 69, 0.1);
+    --warning-soft: rgba(255, 193, 7, 0.1);
+    --dark-color: #1a1a1a;
+    --text-muted: #6c757d;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: var(--dark-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.section-padding {
+    padding: 100px 0;
+}
+
+/* Custom Primary Color override for Bootstrap */
+.text-primary { color: var(--primary-color) !important; }
+.btn-primary { background-color: var(--primary-color); border-color: var(--primary-color); }
+.btn-primary:hover { background-color: #e04b44; border-color: #e04b44; }
+.btn-outline-primary { color: var(--primary-color); border-color: var(--primary-color); }
+.btn-outline-primary:hover { background-color: var(--primary-color); border-color: var(--primary-color); color: white; }
+.bg-primary { background-color: var(--primary-color) !important; }
+.bg-primary-soft { background-color: var(--primary-soft) !important; }
+.bg-success-soft { background-color: var(--success-soft) !important; }
+.bg-warning-soft { background-color: var(--warning-soft) !important; }
+
+/* Navbar */
+.navbar {
+    transition: all 0.3s ease;
+    padding: 15px 0;
+}
+.navbar.scrolled {
+    padding: 10px 0;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 100vh;
+    padding-top: 100px;
+    background: linear-gradient(135deg, #fff 0%, #f9f9f9 100%);
+}
+
+.main-hero-img {
+    border-radius: 30px !important;
+    z-index: 1;
+}
+
+.stats-card {
+    z-index: 2;
+    min-width: 150px;
+    transform: translateY(20px);
+}
+
+/* Mission Cards */
+.mission-card {
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border-radius: 20px;
+    cursor: pointer;
+}
+.mission-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1) !important;
+}
+
+.icon-box {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+}
+
+/* Impact Section */
+.impact-section {
+    background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+/* CTA Section Shapes */
+.cta-shapes .shape {
+    position: absolute;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+}
+.shape-1 {
+    width: 300px;
+    height: 300px;
+    top: -150px;
+    right: -50px;
+}
+.shape-2 {
+    width: 200px;
+    height: 200px;
+    bottom: -100px;
+    left: -50px;
+}
+
+/* Footer */
+.footer-links li {
+    margin-bottom: 12px;
+}
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.footer-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991.98px) {
+    .section-padding {
+        padding: 60px 0;
+    }
+    .display-3 {
+        font-size: 2.5rem;
+    }
+    .hero-section {
+        padding-top: 80px;
+        text-align: center;
+    }
+    .hero-text .d-flex {
+        justify-content: center;
+    }
+}
+
+/* GSAP Animations initial states */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(50px);
+}
+
+.scale-in {
+    opacity: 0;
+    transform: scale(0.9);
+}

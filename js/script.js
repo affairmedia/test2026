@@ -55,12 +55,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }, '-=0.5');
 
     // --- Reveal Animations for Sections ---
-    const reveals = gsap.utils.toArray('.section-header, .mission-card, .testimonial-content');
-    
-    reveals.forEach(el => {
-        gsap.from(el, {
+    const sectionHeaders = gsap.utils.toArray('.section-header');
+    sectionHeaders.forEach(header => {
+        gsap.from(header, {
             scrollTrigger: {
-                trigger: el,
+                trigger: header,
                 start: 'top 85%',
                 toggleActions: 'play none none none'
             },
@@ -69,6 +68,31 @@ document.addEventListener('DOMContentLoaded', () => {
             duration: 1,
             ease: 'power3.out'
         });
+    });
+
+    // Staggered reveal for Mission Cards
+    gsap.from('.mission-card', {
+        scrollTrigger: {
+            trigger: '#missions .row',
+            start: 'top 80%',
+        },
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        stagger: 0.2,
+        ease: 'power3.out'
+    });
+
+    // Reveal for Testimonials
+    gsap.from('.testimonial-content', {
+        scrollTrigger: {
+            trigger: '#testimonials',
+            start: 'top 80%',
+        },
+        opacity: 0,
+        scale: 0.9,
+        duration: 1,
+        ease: 'power3.out'
     });
 
     // --- Impact Counters ---

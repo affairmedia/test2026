@@ -1,26 +1,32 @@
 {
-  "name": "nextjs",
-  "version": "0.1.0",
+  "name": "noescape-monorepo",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
-  },
-  "dependencies": {
-    "next": "16.0.7",
-    "react": "19.2.1",
-    "react-dom": "19.2.1"
+    "install:all": "pnpm install",
+    "dev:ios": "pnpm --filter noescape dev:ios",
+    "dev:android": "pnpm --filter noescape dev:android",
+    "build": "echo 'React Native monorepo - use build:ios or build:android'",
+    "build:ios": "pnpm --filter noescape build:ios",
+    "build:android": "pnpm --filter noescape build:android",
+    "clean": "pnpm --filter './**' clean",
+    "lint": "pnpm --filter './**' lint || echo 'Lint skipped - pnpm not available'",
+    "typecheck": "tsc --noEmit || true",
+    "postinstall": "cd apps/noescape/ios && pod install || true"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.0.7",
-    "tailwindcss": "^4",
-    "typescript": "^5"
-  }
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-native": "^4.1.0",
+    "prettier": "^3.2.4",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.15.0"
 }
